@@ -24,7 +24,6 @@ describe('Board tests', () => {
     const board = new Board(4, 8, model)
     board.generateNextGeneration()
     const result = board.printCorrentGeneration()
-    console.log(result)
     expect(result).toEqual('.******.\n.******.\n.******.\n........\n')
   })
 })
