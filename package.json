@@ -1,0 +1,25 @@
+{
+  "name": "kata-01-el-juego-de-la-vida-dia-04-k01-t01-d04",
+  "version": "1.0.0",
+  "description": "![BrightCoders Logo](img/logo-bc.png)",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "eslint": "^7.27.0",
+    "jest": "^27.0.4"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BC-MAY-21-RN/kata-01-el-juego-de-la-vida-dia-04-k01-t01-d04.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BC-MAY-21-RN/kata-01-el-juego-de-la-vida-dia-04-k01-t01-d04/issues"
+  },
+  "homepage": "https://github.com/BC-MAY-21-RN/kata-01-el-juego-de-la-vida-dia-04-k01-t01-d04#readme"
+}
