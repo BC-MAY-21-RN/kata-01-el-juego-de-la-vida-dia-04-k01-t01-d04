@@ -10,6 +10,11 @@ describe('cell tests', () => {
   const expectIsAlive = (state) => expect(state).toBe(LIVE)
   const expectIsDead = (state) => expect(state).toBe(DEAD)
 
+  const updateState = (cell) => {
+    cell.generateNewState()
+    cell.updateState()
+  }
+
   test('should create a cell with a initial LIVE state', () => {
     const cell = new Cell(LIVE)
     expectIsAlive(cell.getState())
@@ -31,29 +36,25 @@ describe('cell tests', () => {
 
   test('should change state from dead to live', () => {
     const cell = new Cell(DEAD, cellGroupDeadtoAlive)
-    cell.generateNewState()
-    cell.updateState()
+    updateState(cell)
     expectIsAlive(cell.getState())
   })
 
   test('should change state from live to dead', () => {
     const cell = new Cell(LIVE, cellGroupLivetoDie)
-    cell.generateNewState()
-    cell.updateState()
+    updateState(cell)
     expectIsDead(cell.getState())
   })
 
   test('should keep its state (live)', () => {
     const cell = new Cell(LIVE, cellGroupKeepState)
-    cell.generateNewState()
-    cell.updateState()
+    updateState(cell)
     expectIsAlive(cell.getState())
   })
 
   test('should keep its state (dead)', () => {
     const cell = new Cell(DEAD, cellGroupKeepState)
-    cell.generateNewState()
-    cell.updateState()
+    updateState(cell)
     expectIsDead(cell.getState())
   })
 })
