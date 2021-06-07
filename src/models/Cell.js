@@ -14,12 +14,13 @@ class Cell {
       if (neighbor.state === LIVE) { liveNeighbors += 1 }
     })
 
-    if (this.state === DEAD && liveNeighbors === 3) {
+    const shouldSurvive = this.state === DEAD && liveNeighbors === 3
+    const shouldDie = this.state === LIVE && (liveNeighbors < 2 || liveNeighbors > 3)
+
+    if (shouldSurvive) {
       this.nextState = LIVE
-    } else if (this.state === LIVE && (liveNeighbors < 2 || liveNeighbors > 3)) {
+    } else if (shouldDie) {
       this.nextState = DEAD
-    } else if (this.state === LIVE && (liveNeighbors === 2 || liveNeighbors === 3)) {
-      this.nextState = this.state
     } else {
       this.nextState = this.state
     }

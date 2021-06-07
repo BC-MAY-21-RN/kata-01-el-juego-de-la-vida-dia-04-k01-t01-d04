@@ -22,8 +22,8 @@ class Board {
   }
 
   generateNextGeneration () {
-    generateNewState(this.board)
-    updateState(this.board)
+    iterations(this.board, updateNewState)
+    iterations(this.board, updateState)
   }
 
   printCorrentGeneration () {
@@ -66,19 +66,20 @@ function defineNeighbors(board,i,j){
   }
 }
 
-
-function updateState(board){
-  for (let i = 0; i < board.length; i++) {
-    for (let j = 0; j < board[i].length; j++) {
-      board[i][j].updateState()
-    }
-  }
+function updateState(cell){
+  cell.updateState()
 }
 
-function generateNewState(board){
-  for (let i = 0; i < board.length; i++) {
-    for (let j = 0; j < board[i].length; j++) {
-      board[i][j].generateNewState()
+function updateNewState(cell){
+  cell.generateNewState()
+}
+
+function iterations(board, cb) {
+  const rows = board.length;
+  const colums = board[0].length;
+  for (let i = 0; i < rows; i++)   {
+    for (let j = 0; j < colums; j++) {
+      cb(board[i][j])
     }
   }
 }
