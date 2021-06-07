@@ -46,23 +46,15 @@ function defineNeighbors(board,i,j){
   if (THEREISTOP) {
     board[i][j].neighbors.push(board[TOP][j])
     
-    if (THEREISLEFT) {
-      board[i][j].neighbors.push(board[TOP][LEFT])
-    }
-    if (THEREISRIGHT) {
-      board[i][j].neighbors.push(board[TOP][RIGHT])
-    }
+    THEREISLEFT && board[i][j].neighbors.push(board[TOP][LEFT])
+    THEREISRIGHT && board[i][j].neighbors.push(board[TOP][RIGHT])
   }
 
   if (THEREISBUTTOM) {
     board[i][j].neighbors.push(board[BOTTOM][j])
 
-    if (THEREISLEFT) {
-      board[i][j].neighbors.push(board[BOTTOM][LEFT])
-    }
-    if (THEREISRIGHT) {
-      board[i][j].neighbors.push(board[BOTTOM][RIGHT])
-    }
+    THEREISLEFT && board[i][j].neighbors.push(board[BOTTOM][LEFT])
+    THEREISRIGHT && board[i][j].neighbors.push(board[BOTTOM][RIGHT])
   }
 
   if (THEREISLEFT) {
@@ -115,12 +107,6 @@ function thereIsBorder (board,TOP,BOTTOM,LEFT,RIGHT){
     THEREISRIGHT
   }
 }
-
-const model = '........\n..*.*.*.\n.*.*.*..\n........' 
-const board = new Board(4, 8, model)
-board.printCorrentGeneration()
-let result = board.printCorrentGeneration()
-console.log(result)
 
 
 module.exports = Board

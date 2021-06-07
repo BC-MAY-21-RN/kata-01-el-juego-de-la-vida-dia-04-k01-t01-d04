@@ -26,4 +26,19 @@ describe('Board tests', () => {
     const result = board.printCorrentGeneration()
     expect(result).toEqual('.******.\n.******.\n.******.\n........\n')
   })
+
+  test('should generate 3 generations', () => {
+    const model = '........\n..*.*.*.\n.*.*.*..\n........' 
+    const board = new Board(4, 8, model)
+    let result = board.printCorrentGeneration()
+    expect(result).toEqual('........\n..*.*.*.\n.*.*.*..\n........\n')
+
+    board.generateNextGeneration()
+    result = board.printCorrentGeneration()
+    expect(result).toEqual('........\n..****..\n..****..\n........\n')
+
+    board.generateNextGeneration()
+    result = board.printCorrentGeneration()
+    expect(result).toEqual('...**...\n..*..*..\n..*..*..\n...**...\n')
+  })
 })
