@@ -38,31 +38,35 @@ class Board {
   }
 }
 
+function addNeighbor(cell, neighbor){
+  cell.neighbors.push(neighbor)
+}
+
+
 function defineNeighbors(board,i,j){
   const {TOP,BOTTOM,LEFT,RIGHT} = getBorders(i,j)
 
   const {THEREISTOP,THEREISBUTTOM,THEREISLEFT,THEREISRIGHT} = thereIsBorder(board,TOP,BOTTOM,LEFT,RIGHT)
 
   if (THEREISTOP) {
-    board[i][j].neighbors.push(board[TOP][j])
-    
-    THEREISLEFT && board[i][j].neighbors.push(board[TOP][LEFT])
-    THEREISRIGHT && board[i][j].neighbors.push(board[TOP][RIGHT])
+    addNeighbor(board[i][j],board[TOP][j])
+    THEREISLEFT && addNeighbor(board[i][j],board[TOP][LEFT])
+    THEREISRIGHT && addNeighbor(board[i][j],board[TOP][RIGHT])
   }
 
   if (THEREISBUTTOM) {
-    board[i][j].neighbors.push(board[BOTTOM][j])
+    addNeighbor(board[i][j],board[BOTTOM][j])
 
-    THEREISLEFT && board[i][j].neighbors.push(board[BOTTOM][LEFT])
-    THEREISRIGHT && board[i][j].neighbors.push(board[BOTTOM][RIGHT])
+    THEREISLEFT && addNeighbor(board[i][j],board[BOTTOM][LEFT])
+    THEREISRIGHT && addNeighbor(board[i][j],board[BOTTOM][RIGHT])
   }
 
   if (THEREISLEFT) {
-    board[i][j].neighbors.push(board[i][LEFT])
+    addNeighbor(board[i][j],board[i][LEFT])
   }
 
   if (THEREISRIGHT) {
-    board[i][j].neighbors.push(board[i][RIGHT])
+    addNeighbor(board[i][j],board[i][RIGHT])
   }
 }
 
